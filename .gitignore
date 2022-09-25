@@ -1,0 +1,5 @@
+todosAndIdeas
+node_modules
+
+.env
+.vscode

@@ -1,0 +1,160 @@
+:root {
+  --primary-color: #127444;
+  --secondary-color: #add8e6;
+}
+
+html {
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: white;
+  text-align: center;
+  background-color: var(--primary-color);
+}
+.navigation {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  background-color: #333;
+}
+.navigation img {
+  position: absolute;
+  z-index: 1;
+  height: 150%;
+  width: 100%;
+  top: 1em;
+  left: 0.5em;
+}
+.navigation::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: -0.5em;
+  height: 0.5em;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+}
+.logo-wrapper {
+  position: relative;
+  width: 20%;
+}
+
+nav {
+  width: 80%;
+}
+
+nav ul,
+nav ul li {
+  display: flex;
+}
+nav ul {
+  justify-content: space-evenly;
+  list-style: none;
+  flex-wrap: wrap;
+}
+nav a {
+  font-size: 1.5rem;
+  padding: 1em;
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  font-size: 4rem;
+}
+p {
+  font-size: 1.5rem;
+}
+
+.hero {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "top top"
+    "bottom bottom";
+  place-content: center;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 60vh;
+}
+
+.hero::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(180deg, transparent, var(--primary-color));
+  z-index: -1;
+}
+
+.hero h1 {
+  text-shadow: 5px 5px 10px black;
+  grid-area: top;
+  align-self: center;
+}
+
+.hero * {
+  margin: 0 auto;
+  color: white;
+}
+.image-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero picture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  object-fit: cover;
+}
+.hero img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+.club-lorem {
+  grid-area: bottom;
+}
+.club-lorem p {
+  width: 80%;
+  border-top: 2px dashed white;
+  padding-top: 1em;
+}
+
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  .navigation img {
+    /* margin: 1em 2em; */
+  }
+}
+@media screen and (min-width: 800px) {
+  .club-lorem {
+    grid-area: initial;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 16px;
+  }
+}

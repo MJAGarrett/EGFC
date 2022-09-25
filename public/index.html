@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>EGFC</title>
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="logo-wrapper">
+        <img src="./images/Temp Logo.svg" alt="EGFC" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">First Team</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Merchandise</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1>History, Passion, and Drive</h1>
+      <div class="club-lorem">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam
+          voluptate error quasi? Eveniet, odio ipsa? Voluptatibus est nisi earum
+          impedit deserunt delectus quisquam architecto nulla. Voluptatem
+          pariatur laborum nostrum voluptate?
+        </p>
+      </div>
+      <div class="image-container">
+        <picture>
+          <source
+            srcset="
+              ./images/Hero-XL.webp 1920w,
+              ./images/Hero-L.webp  1400w,
+              ./images/Hero-M.webp  1000w,
+              ./images/Hero-S.webp   800w,
+              ./images/Hero-XS.webp  500w
+            "
+            sizes="
+              (min-width: 1400px) 1920px,
+              (min-width: 1000px) 1400px,
+              (min-width: 800px) 1000px,
+              (min-width: 500px) 800px,
+               100vw 
+            "
+          />
+          <img src="./images/Hero-XS.webp" alt="A stadium" />
+        </picture>
+      </div>
+    </div>
+  </body>
+</html>
