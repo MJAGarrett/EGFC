@@ -1,6 +1,7 @@
 :root {
   --primary-color: #127444;
   --secondary-color: #add8e6;
+  --nav-bottom-border-size: .5rem; /* rem for consistency */
 }
 
 html {
@@ -38,8 +39,8 @@ body {
   content: "";
   left: 0;
   right: 0;
-  bottom: -0.5em;
-  height: 0.5em;
+  bottom: calc(var(--nav-bottom-border-size) * -1);
+  height: var(--nav-bottom-border-size);
   background: linear-gradient(
     90deg,
     var(--primary-color),
@@ -64,14 +65,91 @@ nav ul {
   list-style: none;
   flex-wrap: wrap;
 }
-nav a {
+nav li > * {
   font-size: 1.5rem;
   padding: 1em;
   text-decoration: none;
   color: white;
 }
 nav a:hover, nav a:focus {
-  color: #127444;
+  text-decoration: underline;
+}
+.has-submenu {
+  position: relative;
+}
+.has-submenu::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 45%;
+  border: var(--secondary-color) var(--nav-bottom-border-size) solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform-origin: top;
+  transition: all .3s ease-in-out;
+}
+.has-submenu:hover::after,
+.has-submenu[class*="open"]::after {
+  transform: rotateZ(-90deg);
+}
+
+.has-submenu[class*="open"] .nested,
+.has-submenu:hover .nested {
+transform: translateX(-50%) scale(1);
+opacity: 1;
+}
+.nested {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 30;
+  background-color: #333;
+  box-shadow: 0 0 0 .1em var(--primary-color), .3rem .3rem 1.5rem -.2rem black;
+  border-radius: .5em;
+  opacity: 0;
+  transform-origin: top;
+  transform: translateX(-50%) scale(0);
+  transition: all .3s ease-in-out;
+}
+.nested a {
+  flex: 1 1 auto;
+  text-align: initial;
+  padding: .5em;
+}
+.has-submenu[class*="open"] li,
+.has-submenu:hover li {
+transform: translateY(0);
+opacity: 1;
+visibility: visible;
+}
+.nested li {
+  opacity: 0;
+  transform: translateY(-1em);
+  transition: all .3s .15s ease;
+  visibility: hidden;
+}
+.nested::after {
+  content: "";
+  position: absolute;
+  border: var(--primary-color) solid var(--nav-bottom-border-size);
+  top: calc(-2 * var(--nav-bottom-border-size)); /* Times by -2 to account for the border applying size twice */
+  left: 50%;
+  transform: translateX(-50%);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+.nested::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 90%;
+  border: 1px solid var(--secondary-color);
 }
 
 h1 {

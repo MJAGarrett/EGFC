@@ -6,15 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/index.css" />
     <title>EGFC</title>
+    <script type="module" src="./js/submenuHandler.js"></script>
   </head>
   <body>
     <div class="navigation">
       <div class="logo-wrapper">
         <img src="./images/Temp Logo.svg" alt="EGFC" />
       </div>
-      <nav>
+      <nav aria-label="Main Navigation">
         <ul>
-          <li><a href="#">First Team</a></li>
+          <li>
+            <div class="rel has-submenu" tabindex="0" aria-haspopup="true" aria-expanded="false">First Team
+              <ul class="nested">
+                <li><a href="#">Latest</a></li>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="#">Tickets</a></li>
+                <li><a href="#">Results</a></li>
+                <li><a href="#">Standings</a></li>
+                <li><a href="#">Players</a></li>
+                <li><a href="#">Photos</a></li>
+                <li><a href="#">Honours</a></li>
+                <li><a href="#">Features</a></li>
+              </ul>
+            </div>
+          </li>
           <li><a href="#">About</a></li>
           <li><a href="#">Merchandise</a></li>
         </ul>
